@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的 HTML 示例</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a simple HTML example.</p>
+<!--    {% macro input(name, type='text', value='') %}-->
+<!--        <input type="{{ type }}" name="{{ name }}" value=" {{ value }} ">-->
+<!--    {% endmacro %}-->
+
+<!--    从文件导入宏-->
+{% from 'form_macro.html' import input %}
+{{ input('username', value='sewell') }}
+{{ input('password', value='123') }}
+
+</body>
+</html>
