@@ -3,7 +3,7 @@ import os
 
 from flask import Blueprint, render_template, request, make_response, jsonify
 
-from test_flask.models import *
+from models import *
 
 # 定义蓝图
 index = Blueprint('index', __name__)

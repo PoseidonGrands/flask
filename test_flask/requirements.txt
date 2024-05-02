@@ -1,3 +1,5 @@
 flask
 pymysql
 flask-sqlalchemy
+mysqlclient
+flask_debugtoolbar
