@@ -2,9 +2,11 @@ import os
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
+from movie_cat.common.url_manager import URLManager
 from movie_cat.controllers.account import account
 from movie_cat.controllers.index import index
 from movie_cat.models import db
+
 
 app = Flask(__name__)
 
@@ -24,8 +26,9 @@ app.register_blueprint(account, url_prefix='/account/')
 app.register_blueprint(index, url_prefix='/')
 
 
-# with app.app_context():
-#     db.create_all()
+# 添加自定义模板函数
+app.add_template_global(URLManager.buildUrl, 'buildUrl')
+app.add_template_global(URLManager.buildStaticUrl, 'buildStaticUrl')
 
 # 用命令行启动需要的代码
 if __name__ == '__main__':

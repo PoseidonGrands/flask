@@ -3,3 +3,4 @@ pymysql
 flask-sqlalchemy
 mysqlclient
 flask_debugtoolbar
+flask-wtf
