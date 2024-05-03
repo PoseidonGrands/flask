@@ -1,8 +1,9 @@
 import os
-from flask import Flask, Blueprint
+from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
-from movie_cat.accounts.view import account
+from movie_cat.controllers.account import account
+from movie_cat.controllers.index import index
 from movie_cat.models import db
 
 app = Flask(__name__)
@@ -20,6 +21,7 @@ db.init_app(app)
 
 # 蓝图注册
 app.register_blueprint(account, url_prefix='/account/')
+app.register_blueprint(index, url_prefix='/')
 
 
 # with app.app_context():
