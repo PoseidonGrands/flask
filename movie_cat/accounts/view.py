@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 from movie_cat.models import db
 
@@ -7,16 +7,11 @@ account = Blueprint('account', __name__)
 
 @account.route('/login')
 def login():
-    return ''
+    return render_template('account/login.html')
 
 
-@account.route('/create_tables')
-def create_tables():
+@account.route('/init_tables')
+def init_tables():
+    db.drop_all()
     db.create_all()
     return 'aaa'
-
-
-@account.route('/drop_tables')
-def drop_tables():
-    db.drop_all()
-    return 'aa'
