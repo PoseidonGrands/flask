@@ -25,10 +25,9 @@ db.init_app(app)
 app.register_blueprint(account, url_prefix='/account/')
 app.register_blueprint(index, url_prefix='/')
 
-
 # 添加自定义模板函数
-app.add_template_global(URLManager.buildUrl, 'buildUrl')
-app.add_template_global(URLManager.buildStaticUrl, 'buildStaticUrl')
+app.add_template_global(URLManager.build_url, 'build_url')
+app.add_template_global(URLManager.build_static_url, 'build_static_url')
 
 # 用命令行启动需要的代码
 if __name__ == '__main__':

@@ -6,14 +6,16 @@
 {#    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>#}
 {#    <script src="{{ url_for('static', filename='js/jquery-3.7.1.js') }}"></script>#}
 {#    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>#}
-    <link rel="stylesheet" href="{{ buildStaticUrl('/css/bootstrap.min.css') }}"/>
-    <script src="{{ buildStaticUrl('/js/jquery-3.7.1.js') }}"></script>
-    <script src="{{ buildStaticUrl('/js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ build_static_url('/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ build_static_url('/css/layui.css') }}"/>
+    {% block css %}
+    	
+    {% endblock %}
 </head>
 <body>
 {#    顶部导航栏#}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ buildUrl('/index') }}">猫眼</a>
+    <a class="navbar-brand" href="{{ build_url('/index') }}">猫眼</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,10 +29,10 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ buildUrl('/account/reg') }}">注册</a>
+                <a class="nav-link" href="{{ build_url('/account/reg') }}">注册</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ buildUrl('/account/login') }}">登录</a>
+                <a class="nav-link" href="{{ build_url('/account/login') }}">登录</a>
             </li>
         </ul>
 
@@ -44,4 +46,11 @@
     {% endblock %}
 </div>
 </body>
+<script src="{{ build_static_url('/js/jquery-3.7.1.js') }}"></script>
+<script src="{{ build_static_url('/js/bootstrap.min.js') }}"></script>
+<script src="{{ build_static_url('/js/layui.js') }}"></script>
+<script src="{{ build_static_url('/js/common.js') }}"></script>
+{% block js %}
+	
+{% endblock %}
 </html>
