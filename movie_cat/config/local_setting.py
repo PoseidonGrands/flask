@@ -14,3 +14,5 @@ WTF_CSRF_SECRET_KEY = 'movie_cat_abc'
 # 消息闪现密钥
 SECRET_KEY = 'movie_cat_abc'
 
+AUTH_COOKIE_NAME = 'movie_cat'
+

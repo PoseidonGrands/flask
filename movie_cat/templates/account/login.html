@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <div class="jumbotron">
                 <h1 class="display-4">会员登录</h1>
-                <form>
+                <div class="login_wrap">
                     <div class="form-group">
                         <label for="login_user">用户名</label>
                         <input type="email" class="form-control" id="login_user" aria-describedby="emailHelp">
@@ -13,9 +13,12 @@
                         <label for="login_pwd">密码</label>
                         <input type="password" class="form-control" id="login_pwd">
                     </div>
-                    <button type="submit" class="btn btn-primary">确认</button>
-                </form>
+                    <button type="submit" class="btn btn-primary do-login">确认</button>
+                </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block js %}
+	<script src="{{ build_static_url('/js/account/login.js') }}"></script>
 {% endblock %}

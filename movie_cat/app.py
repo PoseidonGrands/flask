@@ -8,6 +8,8 @@ from movie_cat.controllers.index import index
 from movie_cat.models import db
 
 
+
+
 app = Flask(__name__)
 
 # 加载配置
@@ -28,6 +30,10 @@ app.register_blueprint(index, url_prefix='/')
 # 添加自定义模板函数
 app.add_template_global(URLManager.build_url, 'build_url')
 app.add_template_global(URLManager.build_static_url, 'build_static_url')
+
+# 拦截器代码引入
+from movie_cat.interceptors.auth import *
+
 
 # 用命令行启动需要的代码
 if __name__ == '__main__':
