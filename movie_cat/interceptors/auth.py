@@ -8,7 +8,6 @@ from movie_cat.models import User
 @app.before_request
 def before_request():
     app.logger.info('----before_request-----')
-    print('hashdashdahsdsahad')
     g.current_user = None
     # 校验cookie
     user_info = check_cookie()

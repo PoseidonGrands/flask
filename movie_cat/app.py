@@ -1,4 +1,7 @@
 import os
+import sys
+import click
+
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -7,7 +10,7 @@ from movie_cat.controllers.account import account
 from movie_cat.controllers.index import index
 from movie_cat.models import db
 
-
+import os
 
 
 app = Flask(__name__)
@@ -34,7 +37,12 @@ app.add_template_global(URLManager.build_static_url, 'build_static_url')
 # 拦截器代码引入
 from movie_cat.interceptors.auth import *
 
+# 初始化命令行解析器
+from movie_cat.job.launcher import *
+app.cli.add_command(job_cli)
 
 # 用命令行启动需要的代码
 if __name__ == '__main__':
-    app.run()
+    pass
+    # app.run()
+    #export PYTHONPATH=/Users/sewellhe/Py_Projects/flask/

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from flask import Blueprint, render_template, request, session, make_response, redirect
 
+from movie_cat.common.url_manager import URLManager
 from movie_cat.common.user_service import UserService
 from movie_cat.common.utils import response_error_json, response_json
 from movie_cat.models import db, User
@@ -83,7 +84,14 @@ def reg():
 
 @account.route('/logout')
 def logout():
-    # redirect()
+    # 构造响应对象，重定向到首页
+    response = make_response(redirect(URLManager.build_url('/')))
+    # 把cookie删除
+    from movie_cat.app import app
+    response.delete_cookie(app.config['AUTH_COOKIE_NAME'])
+    return response
+
+
     pass
 
 @account.route('/init_tables')

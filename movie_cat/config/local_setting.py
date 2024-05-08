@@ -16,3 +16,5 @@ SECRET_KEY = 'movie_cat_abc'
 
 AUTH_COOKIE_NAME = 'movie_cat'
 
+DEBUG_TB_INTERCEPT_REDIRECTS = False
+

@@ -1,4 +1,4 @@
-from movie_cat.common.release_manager import get_release
+from .release_manager import get_release
 
 DOMAIN = 'http://127.0.0.1:5002'
 
