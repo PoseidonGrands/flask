@@ -12,6 +12,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/movie_cat/templates" />
+        <option value="$MODULE_DIR$/base/templates" />
       </list>
     </option>
   </component>
