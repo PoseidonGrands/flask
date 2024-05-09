@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
+from qa_online.common.url_manager import URLManager
 
 app = Flask(__name__)
 
@@ -22,7 +23,8 @@ toolbar = DebugToolbarExtension(app)
 
 
 # 添加自定义模板函数
-# app.add_template_global(URLManager.build_url, 'build_url')
+app.add_template_global(URLManager.build_url, 'build_url')
+app.add_template_global(URLManager.build_static_url, 'build_static_url')
 
 # 拦截器代码引入
 # from interceptors.auth import *
