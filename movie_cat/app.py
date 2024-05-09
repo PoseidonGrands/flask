@@ -40,9 +40,3 @@ from movie_cat.interceptors.auth import *
 # 初始化命令行解析器
 from movie_cat.job.launcher import *
 app.cli.add_command(job_cli)
-
-# 用命令行启动需要的代码
-if __name__ == '__main__':
-    pass
-    # app.run()
-    #export PYTHONPATH=/Users/sewellhe/Py_Projects/flask/
