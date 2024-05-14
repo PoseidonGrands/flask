@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block layout %}
+{#    顶部导航#}
+	{% include 'qa/components/nav.html' %}
+{#    主要内容#}
+    {% block content %}
+    	
+    {% endblock %}
+{#    右下角菜单#}
+    {% include 'qa/components/footer.html' %}
+{% endblock %}
+{% block js %}
+	<script>
+        $(function () {
+            // 页面右下角的菜单提示
+            $('[data-toggle="tooltip"]').tooltip()
+            {% block js_inline %}
+
+            {% endblock %}
+        })
+    </script>
+{% endblock %}
+
+

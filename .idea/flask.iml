@@ -13,6 +13,7 @@
       <list>
         <option value="$MODULE_DIR$/movie_cat/templates" />
         <option value="$MODULE_DIR$/base/templates" />
+        <option value="$MODULE_DIR$/qa_online/templates" />
       </list>
     </option>
   </component>
