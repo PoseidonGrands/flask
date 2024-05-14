@@ -105,7 +105,17 @@ class Question(db.Model):
     # 建立与用户的一对多属性,user.question_list
     user = db.relationship('User', backref=db.backref('question_list', lazy='dynamic'))
 
+    @property
+    def comment_count(self):
+        return self.question_comment_list.filter_by(is_valid=True).count()
 
+    @property
+    def follow_count(self):
+        return self.question_follow_list.filter_by(is_valid=True).count()
+
+    @property
+    def answer_count(self):
+        return self.answer_list.filter_by(is_valid=True).count()
 class QuestionTags(db.Model):
     """ 问题下的标签 """
     __tablename__ = 'qa_question_tags'
@@ -144,6 +154,9 @@ class Answer(db.Model):
     # 建立与问题的一对多属性
     question = db.relationship('Question', backref=db.backref('answer_list', lazy='dynamic'))
 
+    @property
+    def love_count(self):
+        return self.answer_love_list.count()
 
 class AnswerComment(db.Model):
     """ 回答的评论 """

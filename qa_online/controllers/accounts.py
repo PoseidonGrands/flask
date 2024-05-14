@@ -9,3 +9,4 @@ def reg():
 @accounts.route('/login')
 def login():
     return render_template('accounts/login.html')
+

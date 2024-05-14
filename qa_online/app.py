@@ -1,8 +1,9 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
+from qa_online.common.filters import number_split
 from qa_online.common.url_manager import URLManager
 from qa_online.controllers.qa import qa
 from qa_online.controllers.accounts import accounts
@@ -22,6 +23,7 @@ toolbar = DebugToolbarExtension(app)
 # 初始化数据库连接对象
 db.init_app(app)
 
+
 # 蓝图注册
 app.register_blueprint(accounts, url_prefix='/accounts')
 app.register_blueprint(qa, url_prefix='/qa')
@@ -29,6 +31,9 @@ app.register_blueprint(qa, url_prefix='/qa')
 # 添加自定义模板函数
 app.add_template_global(URLManager.build_url, 'build_url')
 app.add_template_global(URLManager.build_static_url, 'build_static_url')
+
+# 过滤器注册
+app.jinja_env.filters['number_split'] = number_split
 
 # 拦截器代码引入
 # from interceptors.auth import *
