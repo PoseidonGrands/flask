@@ -30,7 +30,7 @@ def check_cookie():
     if auth_cookie is None:
         return False
 
-    # 2、检查cookie分割后的长度
+    # 2、检查cookie分割后的长度.
     cookie_info = auth_cookie.split('-')
     if len(cookie_info) != 2:
         return False
