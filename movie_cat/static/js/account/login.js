@@ -33,6 +33,7 @@ var account_login_ops = {
                     var callback = null
                     if(res.code === 200) {
                         callback = function () {
+                            // 将当前页面重定向
                             window.location.href = opsCommon.buildUrl('/')
                         }
                     }
