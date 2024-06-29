@@ -19,6 +19,7 @@ class UserService(object):
 
     @staticmethod
     def gene_auth(user_info):
+        """用于生成cookie"""
         m = hashlib.md5()
         _str = f'{user_info.id}-{user_info.login_name}-{user_info.login_pwd}'
         m.update(_str.encode('utf-8'))
