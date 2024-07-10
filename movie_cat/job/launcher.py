@@ -16,6 +16,7 @@ flask runjob run -m test
 @click.option('-p', '--param', multiple=True, type=int, metavar='param', help='业务参数')
 @click.pass_context
 def run(ctx, name, act, param):
+    """函数的参数要对应装饰器配置的参数个数（ctx必填）"""
     # 找到文件并引入
     print(param)
     try:
